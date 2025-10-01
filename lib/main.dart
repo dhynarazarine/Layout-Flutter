@@ -20,10 +20,8 @@ class MyApp extends StatelessWidget {
                 Container(
                   padding: const EdgeInsets.only(bottom: 8), // padding bawah 8
                   child: const Text(
-                    'Wisata Gunung di Batu',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                    'Wisata Gunung Bromo di Batu',
+                    style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
                 const Text(
@@ -59,13 +57,18 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter layout: Nama dan NIM Anda',
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Flutter layout demo'),
-        ),
-        body: Column(
+        appBar: AppBar(title: const Text('Flutter layout demo')),
+        body: ListView(
           children: [
+            Image.asset(
+              'assets/Batu.jpg',
+              width: 600,
+              height: 240,
+              fit: BoxFit.cover,
+            ),
             titleSection,
             buttonSection,
+            textSection,
           ],
         ),
       ),
@@ -73,24 +76,35 @@ class MyApp extends StatelessWidget {
   }
 }
 
+Widget textSection = Container(
+  padding: const EdgeInsets.all(32),
+  child: const Text(
+    'Kota Batu Malang memang terkenal menjadi destinasi wisata karena ada Gunung Bromo yang menjadi destinasi favorit banyak wisatawan. Paket wisata Malang Batu Bromo sendiri banyak dicari, karena banyak orang yang ingin berwisata ke Gunung Bromo tersebut.'
+    '\n'
+    '\nQueenadhynar Azarine Dwipa Andiyani'
+    '\n2341760109'
+    '\nSelamat mengerjakan 🙂.',
+    softWrap: true,
+  ),
+);
+
 Column _buildButtonColumn(Color color, IconData icon, String label) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Icon(icon, color: color),
-        Container(
-          margin: const EdgeInsets.only(top: 8),
-          child: Text(
-            label,
-            style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w400,
-              color: color,
-            ),
+  return Column(
+    mainAxisSize: MainAxisSize.min,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Icon(icon, color: color),
+      Container(
+        margin: const EdgeInsets.only(top: 8),
+        child: Text(
+          label,
+          style: TextStyle(
+            fontSize: 12,
+            fontWeight: FontWeight.w400,
+            color: color,
           ),
         ),
-      ],
-    );
-  }
-
+      ),
+    ],
+  );
+}
